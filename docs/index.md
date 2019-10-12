@@ -1568,11 +1568,18 @@ mocha.setup({
   ui: 'tdd'
 });
 
-// Use "tdd" interface, check global leaks, and force all tests to be asynchronous
+// Examples:
 mocha.setup({
-  ui: 'tdd',
+  asyncOnly: true,
+  bail: true,
   checkLeaks: true,
-  asyncOnly: true
+  forbidOnly: true,
+  forbidPending: true,
+  global: ['MyLib'],
+  retries: 3,
+  slow: '100',
+  timeout: '2000',
+  ui: 'bdd'
 });
 ```
 
