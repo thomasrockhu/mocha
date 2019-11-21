@@ -37,7 +37,10 @@ cache:
 jobs:
   include:
     - script: COVERAGE=1 npm start test.node
-      after_success: npm start coveralls
+      before_script: npm install codecov -g
+      after_success:
+        - codecov
+        - npm start coveralls
 
     - &node
       script: npm start test.node
